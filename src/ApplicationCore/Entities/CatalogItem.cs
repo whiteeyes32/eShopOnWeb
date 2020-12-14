@@ -15,12 +15,15 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         public int CatalogBrandId { get; private set; }
         public CatalogBrand CatalogBrand { get; private set; }
 
+        public String Material { get; private set; }
+
         public CatalogItem(int catalogTypeId,
             int catalogBrandId,
             string description,
             string name,
             decimal price,
-            string pictureUri)
+            string pictureUri,
+            string material)
         {
             CatalogTypeId = catalogTypeId;
             CatalogBrandId = catalogBrandId;
@@ -28,6 +31,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
             Name = name;
             Price = price;
             PictureUri = pictureUri;
+            Material = material;
         }
 
         public void UpdateDetails(string name, string description, decimal price)
@@ -61,6 +65,16 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
                 return;
             }
             PictureUri = $"images\\products\\{pictureName}?{new DateTime().Ticks}";
+        }
+
+        public void UpdateMaterial(string material)
+        {
+            if (string.IsNullOrEmpty(material))
+            {
+                material = string.Empty;
+                return;
+            }
+            Material = material;
         }
     }
 }
