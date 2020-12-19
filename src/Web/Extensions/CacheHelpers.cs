@@ -21,5 +21,9 @@ namespace Microsoft.eShopWeb.Web.Extensions
         {
             return "types";
         }
+        public static string GenerateMaterialsCacheKey()
+        {
+            return "materials";
+        }
     }
 }

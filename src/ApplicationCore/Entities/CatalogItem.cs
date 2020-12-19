@@ -14,11 +14,13 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         public CatalogType CatalogType { get; private set; }
         public int CatalogBrandId { get; private set; }
         public CatalogBrand CatalogBrand { get; private set; }
-
-        public String Material { get; private set; }
+        public int CatalogMaterialId { get; private set; }
+        public string Material { get; private set; }
+        public string MaterialObject { get; private set; }
 
         public CatalogItem(int catalogTypeId,
             int catalogBrandId,
+            int catalogMaterialId,
             string description,
             string name,
             decimal price,
@@ -27,6 +29,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         {
             CatalogTypeId = catalogTypeId;
             CatalogBrandId = catalogBrandId;
+            CatalogMaterialId = catalogMaterialId;
             Description = description;
             Name = name;
             Price = price;
@@ -69,12 +72,13 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
 
         public void UpdateMaterial(string material)
         {
-            if (string.IsNullOrEmpty(material))
+            if (String.IsNullOrEmpty(material))
             {
-                material = string.Empty;
+                material = "";
                 return;
             }
             Material = material;
+            //MaterialString = material.Material;
         }
     }
 }
