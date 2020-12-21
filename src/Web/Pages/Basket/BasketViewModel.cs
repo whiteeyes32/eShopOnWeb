@@ -14,5 +14,14 @@ namespace Microsoft.eShopWeb.Web.Pages.Basket
         {
             return Math.Round(Items.Sum(x => x.UnitPrice * x.Quantity), 2);
         }
+        public decimal Tax(decimal total)
+        {
+            return total * (decimal)0.06;
+        }
+
+        public decimal GrandTotal(decimal total, decimal tax)
+        {
+            return total + tax;
+        }
     }
 }

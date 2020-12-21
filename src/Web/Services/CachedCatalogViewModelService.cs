@@ -30,7 +30,7 @@ namespace Microsoft.eShopWeb.Web.Services
 
         public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId, int? materialId)
         {
-            var cacheKey = CacheHelpers.GenerateCatalogItemCacheKey(pageIndex, Constants.ITEMS_PER_PAGE, brandId, typeId);
+            var cacheKey = CacheHelpers.GenerateCatalogItemCacheKey(pageIndex, Constants.ITEMS_PER_PAGE, brandId, typeId, materialId);
 
             return await _cache.GetOrCreateAsync(cacheKey, async entry =>
             {

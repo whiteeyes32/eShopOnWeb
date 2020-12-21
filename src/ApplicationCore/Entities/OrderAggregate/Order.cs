@@ -48,5 +48,14 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate
             }
             return total;
         }
+        public decimal Tax(decimal total)
+        {
+            var tax = total * (decimal)0.06;
+            return tax;
+        }
+        public decimal GrandTotal(decimal total, decimal tax)
+        {
+            return tax + total;
+        }
     }
 }

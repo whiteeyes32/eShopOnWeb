@@ -8,7 +8,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Specifications
         public CatalogFilterSpecification(int? brandId, int? typeId, int? materialId)
         {
             Query.Where(i => (!brandId.HasValue || i.CatalogBrandId == brandId) &&
-                (!typeId.HasValue || i.CatalogTypeId == typeId));
+                (!typeId.HasValue || i.CatalogTypeId == typeId) && (!materialId.HasValue || i.CatalogTypeId == typeId));
         }
     }
 }
